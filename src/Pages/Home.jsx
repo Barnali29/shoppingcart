@@ -15,16 +15,17 @@ export default function Home() {
 
     useEffect(()=>{fetchdata()},[])
     return(
-        <>
-        <h1>Home</h1>
-        {loading ?<h2>Loading...</h2>:
-        null
-        }
-        {
-            product && product.length>0 ?
-            product.map((item)=><Product item={item}/>)
-            :null
-        }
-        </>
+       <>
+       {loading?<p>Loading..</p>
+       :null}
+       <div className="grid grid-cols-3 gap-4">
+    {
+        product && product.length>0?
+        product.map(item=><Product item={item}/>)
+        :null
+    }
+    </div>
+       </>
+    
     )
 }
